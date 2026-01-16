@@ -93,6 +93,20 @@ class Trainer:
 
         for batch_idx, (inputs, targets) in enumerate(dataloader):
             """INSERT YOUR CODE HERE."""
+            inputs, targets = inputs.to(device), targets.to(device)
+            with torch.no_grad():
+                outputs = self.model(inputs)
+
+                loss = self.criterion(outputs, targets)
+
+                total_loss += loss.item()
+                avg_loss = total_loss / (batch_idx + 1)
+
+                nof_samples += inputs.size(0)
+                outputs = torch.argmax(outputs, axis=1)
+                correct_labeled_samples += torch.sum(targets == outputs).item()
+                accuracy = 100 * correct_labeled_samples / nof_samples
+
             if batch_idx % print_every == 0 or batch_idx == len(dataloader) - 1:
                 print(f'Epoch [{self.epoch:03d}] | Loss: {avg_loss:.3f} | '
                       f'Acc: {accuracy:.2f}[%] '
