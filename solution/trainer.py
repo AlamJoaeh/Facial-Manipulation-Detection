@@ -61,8 +61,7 @@ class Trainer:
 
         for batch_idx, (inputs, targets) in enumerate(train_dataloader):
             """INSERT YOUR CODE HERE."""
-            inputs, targets = inputs.to(device), targets.to(device)
-            
+            inputs, targets = inputs.to(device), targets.to(device)            
             self.optimizer.zero_grad()
 
             outputs = self.model(inputs)

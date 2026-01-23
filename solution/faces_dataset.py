@@ -36,8 +36,7 @@ class FacesDataset(Dataset):
             label = 1
             image_path = os.path.join(self.root_path, 'fake', self.fake_image_names[index - n_real])
 
-        image = Image.open(image_path)
-
+        image = Image.open(image_path).convert('RGB')
         if self.transform is not None:
             image = self.transform(image)
 
