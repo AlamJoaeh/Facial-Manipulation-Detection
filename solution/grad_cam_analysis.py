@@ -74,8 +74,6 @@ def get_grad_cam_visualization(test_dataset: torch.utils.data.Dataset,
     visualization = show_cam_on_image(rgb_img, grayscale_cam, use_rgb=True)
 
     return visualization, true_label
-    #return np.random.rand(256, 256, 3), torch.randint(0, 2, (1,))
-
 
 def main():
     """Create two GradCAM images, one of a real image and one for a fake

@@ -79,8 +79,6 @@ def get_soft_scores_and_true_labels(dataset, model):
             gt_labels += targets.tolist()
 
     return all_first_soft_scores, all_second_soft_scores, gt_labels
-    #return torch.rand(100, ), torch.rand(100, ), torch.randint(0, 2, (100, ))
-
 
 def plot_roc_curve(roc_curve_figure,
                    all_first_soft_scores,

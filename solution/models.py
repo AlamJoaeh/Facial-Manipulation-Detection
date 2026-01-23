@@ -54,4 +54,4 @@ def get_xception_based_model() -> nn.Module:
         nn.Linear(64, 2))
 
     return custom_network
-    return SimpleNet()
+
